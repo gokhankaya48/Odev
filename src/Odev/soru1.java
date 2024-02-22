@@ -1,4 +1,4 @@
-package odev;
+package Odev;
 /*1) Bu siteye gidin. -> http://demoqa.com/text-box
 
         2) Full Name kısmına "Automation" girin.
@@ -16,56 +16,52 @@ package odev;
         8) Email'in, "Testing"ı içinde bulundurduğunu doğrulayın.*/
 
 
-import Utility.BaseDriver;
-import Utility.MyFunc;
+import Utlity.BaseDriver;
+import Utlity.MyFunc;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import static Utlity.BaseDriver.WaitClose;
+import static Utlity.BaseDriver.driver;
+
 public class soru1 extends BaseDriver {
 
     @Test
-    public void Test1(){
+    public void Test1() {
 
         driver.get(" http://demoqa.com/text-box");
 
-        WebElement fullname=driver.findElement(By.cssSelector("[placeholder='Full Name']"));
+        WebElement fullname = driver.findElement(By.cssSelector("[placeholder='Full Name']"));
         fullname.sendKeys("Automation");
         MyFunc.Bekle(2);
 
 
-        WebElement Email=driver.findElement(By.cssSelector("[id='userEmail']"));
+        WebElement Email = driver.findElement(By.cssSelector("[id='userEmail']"));
         Email.sendKeys("Testing@gmail.com");
         MyFunc.Bekle(2);
 
-        WebElement CurrentAdress=driver.findElement(By.cssSelector(" [id='currentAddress']"));
+        WebElement CurrentAdress = driver.findElement(By.cssSelector(" [id='currentAddress']"));
         CurrentAdress.sendKeys("Testing Current Address");
         MyFunc.Bekle(2);
 
 
-        WebElement ParmanentAdress=driver.findElement(By.cssSelector("[id='permanentAddress']"));
+        WebElement ParmanentAdress = driver.findElement(By.cssSelector("[id='permanentAddress']"));
         ParmanentAdress.sendKeys("Testing Permanent Address");
         MyFunc.Bekle(2);
 
-        WebElement Submit=driver.findElement(By.cssSelector("[id='submit']"));
+        WebElement Submit = driver.findElement(By.cssSelector("[id='submit']"));
         Submit.click();
         MyFunc.Bekle(2);
 
-        WebElement checkName=driver.findElement(By.cssSelector("[id='name'][class='mb-1']"));
-        WebElement checkEmail=driver.findElement(By.cssSelector("[id='email'][class='mb-1']"));
+        WebElement checkName = driver.findElement(By.cssSelector("[id='name'][class='mb-1']"));
+        WebElement checkEmail = driver.findElement(By.cssSelector("[id='email'][class='mb-1']"));
 
-        Assert.assertTrue("Aranılan mesaj bulunamadı",checkName.getText().contains("Automation"));
-        Assert.assertTrue("Aranılan mesaj bulunamadı",checkEmail.getText().contains("Testing"));
+        Assert.assertTrue("Aranılan mesaj bulunamadı", checkName.getText().contains("Automation"));
+        Assert.assertTrue("Aranılan mesaj bulunamadı", checkEmail.getText().contains("Testing"));
 
-
-
-
-
-
-   BekleKapat();
-
-
+        WaitClose();
 
 
     }

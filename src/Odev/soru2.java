@@ -1,7 +1,8 @@
-package odev;
+package Odev;
 
-import Utility.BaseDriver;
-import Utility.MyFunc;
+
+import Utlity.BaseDriver;
+import Utlity.MyFunc;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -20,28 +21,28 @@ import org.openqa.selenium.WebElement;
 public class soru2 extends BaseDriver {
 
     @Test
-    public void Test1(){
+    public void Test1() {
 
         driver.get("https://demo.applitools.com/");
 
-        WebElement username= driver.findElement(By.cssSelector("[class='form-control'][placeholder='Enter your username']"));
+        WebElement username = driver.findElement(By.cssSelector("[class='form-control'][placeholder='Enter your username']"));
         username.sendKeys("ttechno@gmail.com");
         MyFunc.Bekle(1);
 
-        WebElement password= driver.findElement(By.cssSelector("[class='form-control'][placeholder='Enter your password']"));
+        WebElement password = driver.findElement(By.cssSelector("[class='form-control'][placeholder='Enter your password']"));
         password.sendKeys("techno123.");
         MyFunc.Bekle(1);
 
 
-        WebElement singIn= driver.findElement(By.cssSelector("[action]>:nth-child(3)>a"));
+        WebElement singIn = driver.findElement(By.cssSelector("[action]>:nth-child(3)>a"));
         singIn.click();
         MyFunc.Bekle(1);
 
-        WebElement control= driver.findElement(By.cssSelector("[class='element-actions']  +h6"));
-        Assert.assertTrue("Aranan mesaj bulunamadı",control.getText().contains("Your nearest branch closes in: 30m 5s"));
+        WebElement control = driver.findElement(By.cssSelector("[class='element-actions']  +h6"));
+        Assert.assertTrue("Aranan mesaj bulunamadı", control.getText().contains("Your nearest branch closes in: 30m 5s"));
 
+        WaitClose();
 
-BekleKapat();
 
     }
 
