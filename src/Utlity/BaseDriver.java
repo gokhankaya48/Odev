@@ -2,13 +2,16 @@ package Utlity;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class BaseDriver {
     public static WebDriver driver;
+    public static WebDriverWait wait;
     static{ //bunun sarti extends olmasi ve basta yer almasi
         driver=new ChromeDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         //driver.manage().window().maximize(); // Ekranı max yapıyor.
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20)); // 20 sn mühlet: sayfayı yükleme mühlet
